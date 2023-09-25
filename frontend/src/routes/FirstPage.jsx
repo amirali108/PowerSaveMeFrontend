@@ -1,16 +1,16 @@
-import styled from "styled-components"
-
+import styled from 'styled-components'
+import TimeNavigation from '../components/TimeNavigation'
 
 function FirstPage() {
   return (
     <>
-<First>
-
-</First>
+      <Time>
+        <TimeNavigation />
+      </Time>
     </>
   )
 }
 
 export default FirstPage
 
-const First = styled.div``
+const Time = styled.div``

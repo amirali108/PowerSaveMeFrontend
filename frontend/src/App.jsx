@@ -6,11 +6,13 @@ import NavTop from './components/NavTop'
 import NavBottom from './components/NavBottom'
 import SelectHome from './components/SelectHome'
 
+
 function App() {
   return (
     <>
       <NavTop />
       <SelectHome />
+      {/* <TimeNavigation /> */}
       <Router>
         <Routes>
           <Route path="/" element={<FirstPage />} />
