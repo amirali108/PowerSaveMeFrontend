@@ -29,8 +29,7 @@ const Wrapper = styled.div`
   bottom: 0;
   padding-bottom: 5px;
   padding-top: 5px;
-  border: 1px solid #000000;
-  border-radius: 50px;
+  background-color: #ffffff;
 
   .navbar {
     display: flex;

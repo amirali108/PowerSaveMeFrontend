@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import TimeNavigation from '../components/TimeNavigation'
 
+
 function FirstPage() {
   return (
     <>
