@@ -15,7 +15,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<FirstPage />} />
-          {/* <Route path="*" element={<ErrorPage errormsg={'Hoppsan'} />} /> */}
         </Routes>
       </Router>
       <Savings />

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import EnergyBalance from './EnergyBalance'
-import EnergyBalanceMonth from './EnergyBalanceMonth'
-import EnergyBalanceYear from './EnergyBalanceYear'
+
 
 
 function TimeNavigation() {
@@ -57,12 +56,12 @@ function TimeNavigation() {
 <div
   className={toggleTab === 2 ? 'content active-content' : 'content'}
 >
-  <EnergyBalanceMonth />
+  <EnergyBalance />
 </div>
 <div
   className={toggleTab === 3 ? 'content active-content' : 'content'}
 >
-  <EnergyBalanceYear />
+  <EnergyBalance />
 </div>
 </div>
       </div>
