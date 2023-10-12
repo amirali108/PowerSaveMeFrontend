@@ -92,11 +92,17 @@ https://reactrouter.com/en/main/start/overview
 
 ## Data Visualization (Recharts)
 The plugin Recharts are used for the charts. The data is hard coded for now and is placed inside the chart components. The data is going to be from APIs and backend. Since the data in TimeNavigation.jsx is going to be different depending on day, month, year and lifetime, the chart component is a reusable component, and the idea is that data is going to be fetched from another component and passed through props.
-       https://recharts.org/en-US
+
+Read more here:
+
+https://recharts.org/en-US
 
 ## User Interface (React select)
 The component DropDown.jsx is a selector of houses. The data is hard coded for now and is placed in the component. The idea is to be able to have multiple households connected to the application.
-      https://react-select.com/home
+
+Read more here:
+
+https://react-select.com/home
 
 ## Deployment
 The deployment is done in AWS (Amazon Web Services). Two different repositories are used for backend and frontend. 
