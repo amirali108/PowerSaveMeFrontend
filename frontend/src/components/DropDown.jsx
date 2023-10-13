@@ -1,34 +1,30 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import styled from 'styled-components'
 import Select from 'react-select'
 import Arrow from './ArrowIcon'
 
-
-
 function DropDown() {
-
+  //Data should be coming from database
   const options = [
     { label: 'House 1', value: 'house1' },
     { label: 'House 2', value: 'house2' }
   ]
 
-  const [selected, setSelected] = useState(options[0].label);
+  const [selected, setSelected] = useState(options[0].label)
 
   const handleChange = (selectedOption) => {
+    setSelected(selectedOption)
+  }
 
-    setSelected(selectedOption);
-    console.log(`Option selected:`, selectedOption);
-  };
-
+  //customStyles for Dropdown since using React-Select.
+  //The blue outline when active needs to be removed.
   const customStyles = {
     control: (provided) => ({
       ...provided,
       fontSize: '12px',
       border: 'none',
       padding: '0',
-      margin: '0',
-
-
+      margin: '0'
     }),
     container: (provided) => ({
       ...provided,
@@ -49,17 +45,14 @@ function DropDown() {
     input: (provided) => ({
       ...provided,
       color: '#000000',
-      fontSize: '12px',
-
+      fontSize: '12px'
     }),
     menu: (provided) => ({
       ...provided,
       fontSize: '12px',
       margin: '0',
       border: 'none',
-      boxShadow: 'none',
-
-
+      boxShadow: 'none'
     }),
     menuList: (provided) => ({
       ...provided,
@@ -69,11 +62,8 @@ function DropDown() {
     option: (provided, state) => ({
       ...provided,
       padding: '5px',
-      // backgroundColor: '#ffffff',
-      // color: '#000000',
-      color: state.isSelected ? "#000000" : "#000000",
-      backgroundColor: state.isSelected ? "#a0a0a0" : "#ffffff",
-
+      color: state.isSelected ? '#000000' : '#000000',
+      backgroundColor: state.isSelected ? '#a0a0a0' : '#ffffff'
     }),
     placeholder: (provided) => ({
       ...provided,
@@ -81,28 +71,21 @@ function DropDown() {
     })
   }
 
-  // const handleChange = (event) => {
-  //   setValue(event.target.value)
-  // }
-
   return (
     <>
       <Drop>
-      <Select
-      className='drop'
-        options={options}
-        styles={customStyles}
-        isSearchable={false}
-        placeholder={options[0].label}
-        components={{ DropdownIndicator: Arrow }}
-        onChange={handleChange}
-        // Other props like onChange, value, etc.
-      />
-      <div className='house'>
-        <p>
-          { selected.label }
-        </p>
-      </div>
+        <Select
+          className="drop"
+          options={options}
+          styles={customStyles}
+          isSearchable={false}
+          placeholder={options[0].label}
+          components={{ DropdownIndicator: Arrow }}
+          onChange={handleChange}
+        />
+        <div className="house">
+          <p>{selected.label}</p>
+        </div>
       </Drop>
     </>
   )

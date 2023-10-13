@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   padding-bottom: 5px;
   padding-top: 5px;
   background-color: #ffffff;
+  border-top: 1px solid #000000;
 
   .navbar {
     display: flex;

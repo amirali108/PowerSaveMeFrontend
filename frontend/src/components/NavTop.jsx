@@ -1,25 +1,25 @@
 import { styled } from 'styled-components'
 import PlusButton from './PlusButton'
 import Logo from '../assets/logo/cropped-800x800-logo.png'
-import MoonLogo from './MoonLogo'
+import MoonIcon from './MoonIcon'
 
 function NavTop() {
   return (
     <>
       <NavTopWrapper>
-        <div className='left-wrapper'>
-        <div className='psm-logo'>
-          <img src={Logo} alt="Power save me logo" />
+        <div className="left-wrapper">
+          <div className="psm-logo">
+            <img src={Logo} alt="Power save me logo" />
+          </div>
+          <div>
+            <h1>Ecosystem Home</h1>
+          </div>
+          <div className="plus-button">
+            <PlusButton />
+          </div>
         </div>
-        <div>
-          <h1>Ecosystem Home</h1>
-        </div>
-        <div className='plus-button'>
-          <PlusButton />
-        </div>
-        </div>
-        <div className='moon-logo'>
-          <MoonLogo />
+        <div className="moon-logo">
+          <MoonIcon />
         </div>
       </NavTopWrapper>
     </>

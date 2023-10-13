@@ -20,19 +20,18 @@ function HouseIcon() {
 export default HouseIcon
 
 const House = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-.feather-home {
-  width: 30px;
-  height: 30px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+  .feather-home {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
 `

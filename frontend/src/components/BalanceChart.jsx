@@ -2,6 +2,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts'
 import styled from 'styled-components'
 
 function BalanceChart() {
+  //Hard coded data. Needs to be replaced.
   const data = [
     {
       name: '08.00',
@@ -93,7 +94,6 @@ function BalanceChart() {
   return (
     <>
       <Balance>
-
         <AreaChart
           width={450}
           height={220}
@@ -115,7 +115,6 @@ function BalanceChart() {
               <stop offset="95%" stopColor="#7AC813" stopOpacity={0} />
             </linearGradient>
           </defs>
-          {/* <CartesianGrid strokeDasharray="0 0" /> */}
           <XAxis dataKey="name" fontSize={12} />
           <YAxis fontSize={12} />
           <Tooltip />

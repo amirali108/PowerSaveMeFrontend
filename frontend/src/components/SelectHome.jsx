@@ -8,6 +8,7 @@ function SelectHome() {
   return (
     <>
       <Home>
+        {/* HouseIcon need another SVG. More like the design.  */}
         <HouseIcon />
         <DropDown />
         <Connected />
@@ -19,7 +20,7 @@ function SelectHome() {
 export default SelectHome
 
 const Home = styled.div`
-height: 50px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;

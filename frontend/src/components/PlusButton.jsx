@@ -20,9 +20,9 @@ function PlusButton() {
 export default PlusButton
 
 const ButtonWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
 

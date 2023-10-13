@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import EnergyBalance from './EnergyBalance'
+import Savings from './Savings'
 
-
+//Component on FirstPage that toggles between day, month, year and lifetime-data.
 
 function TimeNavigation() {
   const [toggleTab, setToggleTab] = useState(1)
@@ -14,58 +15,73 @@ function TimeNavigation() {
   return (
     <>
       <TimelineContainer>
-      {/* <i className='line'></i> */}
-      <div className='time'>
-      <div className="tabs">
+        <div className="time">
+          <div className="tabs">
+            <div
+              className={toggleTab === 1 ? 'tab active-tab' : 'tab'}
+              onClick={() => toggleTabs(1)}
+            >
+              <p>Day</p>
+              <i
+                className={toggleTab === 1 ? 'border active-border' : 'border'}
+              ></i>
+            </div>
+            <div
+              className={toggleTab === 2 ? 'tab active-tab' : 'tab'}
+              onClick={() => toggleTabs(2)}
+            >
+              <p>Month</p>
+              <i
+                className={toggleTab === 2 ? 'border active-border' : 'border'}
+              ></i>
+            </div>
+            <div
+              className={toggleTab === 3 ? 'tab active-tab' : 'tab'}
+              onClick={() => toggleTabs(3)}
+            >
+              <p>Year</p>
+              <i
+                className={toggleTab === 3 ? 'border active-border' : 'border'}
+              ></i>
+            </div>
+            <div
+              className={toggleTab === 4 ? 'tab active-tab' : 'tab'}
+              onClick={() => toggleTabs(4)}
+            >
+              <p>Lifetime</p>
+              <i
+                className={toggleTab === 4 ? 'border active-border' : 'border'}
+              ></i>
+            </div>
+          </div>
 
-<div
-  className={toggleTab === 1 ? 'tab active-tab' : 'tab'}
-  onClick={() => toggleTabs(1)}
->
-  <p>Day</p>
-  <i
-    className={toggleTab === 1 ? 'border active-border' : 'border'}
-  ></i>
-</div>
-<div
-  className={toggleTab === 2 ? 'tab active-tab' : 'tab'}
-  onClick={() => toggleTabs(2)}
->
-  <p>Month</p>
-  <i
-    className={toggleTab === 2 ? 'border active-border' : 'border'}
-  ></i>
-</div>
-<div
-  className={toggleTab === 3 ? 'tab active-tab' : 'tab'}
-  onClick={() => toggleTabs(3)}
->
-  <p>Year</p>
-  <i
-    className={toggleTab === 3 ? 'border active-border' : 'border'}
-  ></i>
-</div>
-</div>
-
-<div className="tab-content">
-<div
-  className={toggleTab === 1 ? 'content active-content' : 'content'}
->
-  <EnergyBalance />
-</div>
-<div
-  className={toggleTab === 2 ? 'content active-content' : 'content'}
->
-  <EnergyBalance />
-</div>
-<div
-  className={toggleTab === 3 ? 'content active-content' : 'content'}
->
-  <EnergyBalance />
-</div>
-</div>
-      </div>
-
+          <div className="tab-content">
+            <div
+              className={toggleTab === 1 ? 'content active-content' : 'content'}
+            >
+              <EnergyBalance />
+              <Savings />
+            </div>
+            <div
+              className={toggleTab === 2 ? 'content active-content' : 'content'}
+            >
+              <EnergyBalance />
+              <Savings />
+            </div>
+            <div
+              className={toggleTab === 3 ? 'content active-content' : 'content'}
+            >
+              <EnergyBalance />
+              <Savings />
+            </div>
+            <div
+              className={toggleTab === 4 ? 'content active-content' : 'content'}
+            >
+              <EnergyBalance />
+              <Savings />
+            </div>
+          </div>
+        </div>
       </TimelineContainer>
     </>
   )
@@ -80,13 +96,13 @@ const TimelineContainer = styled.div`
   width: 100%;
   margin-top: 30px;
 
-.time {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 30px;
-}
+  .time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+  }
 
   .tabs {
     width: 100%;

@@ -5,7 +5,7 @@ import FirstPage from './routes/FirstPage'
 import NavTop from './components/NavTop'
 import NavBottom from './components/NavBottom'
 import SelectHome from './components/SelectHome'
-import Savings from './components/Savings'
+
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
           <Route path="/" element={<FirstPage />} />
         </Routes>
       </Router>
-      <Savings />
       <NavBottom />
     </>
   )

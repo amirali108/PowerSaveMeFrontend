@@ -1,9 +1,10 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
+//This component is going to change color when the house is connected.
 function Connected() {
   return (
     <>
-    <Connect>Connected</Connect>
+      <Connect>Connected</Connect>
     </>
   )
 }
@@ -11,9 +12,9 @@ function Connected() {
 export default Connected
 
 const Connect = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #000000;
   font-size: 12px;
   margin-left: 10px;

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-function MoonLogo() {
+function MoonIcon() {
   return (
     <>
-      <MoonIcon>
+      <Moon>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -10,14 +10,14 @@ function MoonLogo() {
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
-      </MoonIcon>
+      </Moon>
     </>
   )
 }
 
-export default MoonLogo
+export default MoonIcon
 
-const MoonIcon = styled.div`
+const Moon = styled.div`
   .feather-moon {
     display: flex;
     width: 24px;

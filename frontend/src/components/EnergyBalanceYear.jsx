@@ -1,9 +1,7 @@
-
+//component for fetching data
 
 function EnergyBalanceYear() {
-  return (
-    <div>EnergyBalanceYear</div>
-  )
+  return <div>EnergyBalanceYear</div>
 }
 
 export default EnergyBalanceYear
