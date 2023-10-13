@@ -38,10 +38,7 @@ const Balance = styled.div`
   border-radius: 20px;
   width: 361px;
   height: 319px;
-
-  ::shadow {
-    color: black;
-  }
+  box-shadow: 1px 1px 5px #999999;
 
   .header {
     display: flex;
