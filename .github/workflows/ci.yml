@@ -1,75 +1,53 @@
-name: CI/CD for PowerSaveMe
+name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
   pull_request:
-    branches:
-      - main
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'  # Using Node.js version 16 for better compatibility
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Specify the Node.js version you want to use
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./frontend
 
-      - name: Install Expo CLI
-        run: npm install -g expo-cli@4.12.11  # Using a stable version of Expo CLI
+    - name: Run Lint
+      run: npm run lint
+      working-directory: ./frontend
 
-      - name: Build Expo project for Web
-        run: |
-          expo login -u ${{ secrets.EXPO_USERNAME }} -p ${{ secrets.EXPO_PASSWORD }} || true
-          expo build:web --non-interactive
+    - name: Run Tests
+      run: npm test
+      working-directory: ./frontend
 
-      - name: Install Fastlane
-        run: sudo gem install fastlane
+    - name: Build Project
+      run: npm run build
+      working-directory: ./frontend
 
-      - name: Deploy to iOS (if ios directory exists)
-        if: github.ref == 'refs/heads/main' && steps.ios_dir.outputs.exists == 'true'
-        run: |
-          cd ios
-          fastlane beta
-        env:
-          APP_STORE_CREDENTIALS: ${{ secrets.APP_STORE_CREDENTIALS }}
+# The deployment step is commented out temporarily.
+# Uncomment the following lines to re-enable deployment to GitHub Pages.
 
-      - name: Deploy to Android (if android directory exists)
-        if: github.ref == 'refs/heads/main' && steps.android_dir.outputs.exists == 'true'
-        run: |
-          cd android
-          fastlane deploy
-        env:
-          GOOGLE_PLAY_CREDENTIALS: ${{ secrets.GOOGLE_PLAY_CREDENTIALS }}
+#  deploy:
+#    runs-on: ubuntu-latest
+#    needs: build
 
-      - name: Check for ios directory
-        id: ios_dir
-        run: echo "exists=$(test -d ios && echo true || echo false)" >> $GITHUB_ENV
+#    steps:
+#    - name: Checkout code
+#      uses: actions/checkout@v3
 
-      - name: Check for android directory
-        id: android_dir
-        run: echo "exists=$(test -d android && echo true || echo false)" >> $GITHUB_ENV
-
-      # New Step: Deploy to Server via SSH, only if the secrets are configured
-      - name: Deploy to Server
-        if: github.ref == 'refs/heads/main' && env.SERVER_IP && env.SERVER_USERNAME && env.SSH_PRIVATE_KEY
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ${{ secrets.SERVER_PATH }}
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart all
+#    - name: Deploy to GitHub Pages
+#      uses: peaceiris/actions-gh-pages@v3
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        publish_dir: ./frontend/dist
