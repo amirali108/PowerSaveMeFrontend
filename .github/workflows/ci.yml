@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Specify the Node.js version you want to use
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./frontend
+
+    - name: Run Lint
+      run: npm run lint
+      working-directory: ./frontend
+
+    - name: Run Tests
+      run: npm test
+      working-directory: ./frontend
+
+    - name: Build Project
+      run: npm run build
+      working-directory: ./frontend
+
+# The deployment step is commented out temporarily.
+# Uncomment the following lines to re-enable deployment to GitHub Pages.
+
+#  deploy:
+#    runs-on: ubuntu-latest
+#    needs: build
+
+#    steps:
+#    - name: Checkout code
+#      uses: actions/checkout@v3
+
+#    - name: Deploy to GitHub Pages
+#      uses: peaceiris/actions-gh-pages@v3
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        publish_dir: ./frontend/dist
