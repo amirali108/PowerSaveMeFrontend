@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+
+  --green1: #7ac813;
+  --green2: #56801f;
+  --purple: #5e5ce6;
+  --purple1: #afadf3;
+  --purple2: #dfdefa;
+  --black: #000000;
+  --white: #ffffff;
+  --grey1: #2c2c2e;
+  --grey2: #3a3a3c;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+}
