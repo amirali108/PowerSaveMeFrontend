@@ -1,23 +1,20 @@
-# Frontend Dockerfile (PowerSaveMeFrontend)
-
-# Use the official Node.js image to build the frontend
+# Use the official Node.js image
 FROM node:14-alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+# Set the working directory to the frontend folder
+WORKDIR /app/frontend
 
-# Copy package.json and install dependencies
-COPY package*.json ./
+# Copy the package.json and package-lock.json
+COPY frontend/package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the frontend code to the container
-COPY . .
+# Copy the rest of the frontend code
+COPY frontend/ .
 
-# Build the frontend application
-RUN npm run build
-
-# Expose the port for the frontend (typically React runs on port 3000)
+# Expose port 3000 for the frontend
 EXPOSE 3000
 
-# Start the frontend application
-CMD ["npm", "start"]
+# Run the frontend application in development mode
+CMD ["npm", "run", "dev", "--", "--host"]
